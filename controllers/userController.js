@@ -41,6 +41,8 @@ export const login = async (req, res) => {
         }  
      
         const { password, ...user } = userData._doc
+        console.log("user===========");
+        console.log(user);
         res.status(200).json({ user })  
 
     } catch (err) {
@@ -66,7 +68,7 @@ export const forgotPassword = async (req, res) => {
             from: "sender@server.com",
             to: user.email,
             subject: "reset token",
-            html: `<a href="http://localhost:3000/resetPassword?token=${randomText}&userId=${userId}">password reset link</a>`
+            html: `<a href="https://main.dwnq1g7weluka.amplifyapp.com/resetPassword?token=${randomText}&userId=${userId}">password reset link</a>`
         })
         return res.status(200).json({ msg: 'check your email to reset password' })
 
